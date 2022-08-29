@@ -1,0 +1,24 @@
+body {font-family:  'Roboto', sans-serif;
+    letter-spacing:1px;
+    text-align:left;
+    font-weight: 300;
+    color: #000000;
+    background-color: azure;
+    height: 100%;
+    width: 100%;
+}
+
+#bla {
+    font-weight: bold;
+    color: #5c74aa;
+    text-align: center;
+    margin-top: 20%;
+    size: A5;
+    font-size: x-large;
+}
+
+#gif {
+    width:50%;
+    height:0;
+    padding-bottom:70%;
+}
