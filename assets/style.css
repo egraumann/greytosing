@@ -1,4 +1,4 @@
-body {font-family:  'Roboto', sans-serif;
+body {font-family:  'DejaVu Sans Mono', sans-serif;
     letter-spacing:1px;
     text-align:left;
     font-weight: 300;
@@ -8,17 +8,25 @@ body {font-family:  'Roboto', sans-serif;
     width: 100%;
 }
 
-#bla {
+#content {
     font-weight: bold;
     color: #5c74aa;
     text-align: center;
-    margin-top: 20%;
+    margin-top: 25%;
     size: A5;
     font-size: x-large;
 }
 
-#gif {
-    width:50%;
-    height:0;
-    padding-bottom:70%;
+#content h1 {
+    font-size: larger;
+}
+
+#content p span {
+    color: indianred;
+}
+
+#content img {
+    margin-top: -15%;
+    width: 100%;
+    position: relative;
 }
