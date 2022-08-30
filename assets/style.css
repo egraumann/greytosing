@@ -15,6 +15,7 @@ body {font-family:  'DejaVu Sans Mono', sans-serif;
     margin-top: 25%;
     size: A5;
     font-size: x-large;
+    height: 450px
 }
 
 #content h1 {
@@ -26,7 +27,27 @@ body {font-family:  'DejaVu Sans Mono', sans-serif;
 }
 
 #content img {
-    margin-top: -15%;
     width: 100%;
     position: relative;
+    height: 300px
+}
+
+.circular--square { border-radius: 50%; }
+
+#links {
+    height: 100px;
+    width: 50%;
+    margin-left: 30%;
+    margin-top: -10%;
+    position: absolute;
+    size: A5;
+}
+#links ul {
+    list-style: none;
+    text-align: center;
+}
+
+#links ul li {
+    float: left;
+    padding: 10px;
 }
