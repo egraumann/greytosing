@@ -6,41 +6,44 @@ body {font-family:  'DejaVu Sans Mono', sans-serif;
     background-color: azure;
     height: 100%;
     width: 100%;
-}
 
+    background-image: linear-gradient(127deg, #9fc6cc 25%, #f9f5ff 25%, #f9f5ff 50%, #9fc6cc 50%, #9fc6cc 75%, #f9f5ff 75%, #f9f5ff 100%);
+    background-size: 50.09px 66.47px;
+}
 #content {
     font-weight: bold;
     color: #5c74aa;
     text-align: center;
-    margin-top: 25%;
-    size: A5;
+    margin-top: 5%;
+    margin-left: 25%;
     font-size: x-large;
-    height: 450px
+    height: 700px;
+    width: 700px;
+    border-radius: 50%;
+    background-color: white;
+    border: 1px solid grey;
 }
 
 #content h1 {
     font-size: larger;
-}
-
-#content p span {
-    color: indianred;
+    opacity: 1.0;
+    margin-top: 20%;
 }
 
 #content img {
     width: 100%;
     position: relative;
-    height: 300px
+    height: 250px;
+    opacity: 0.5;
 }
-
-.circular--square { border-radius: 50%; }
 
 #links {
     height: 100px;
     width: 50%;
-    margin-left: 30%;
-    margin-top: -10%;
+    margin-left: 5%;
+    margin-top: -5%;
     position: absolute;
-    size: A5;
+    font-size: 20px;
 }
 #links ul {
     list-style: none;
@@ -50,4 +53,43 @@ body {font-family:  'DejaVu Sans Mono', sans-serif;
 #links ul li {
     float: left;
     padding: 10px;
+}
+
+#page {
+    color: #5c74aa;
+    text-align: center;
+    margin-top: 5%;
+    font-size: x-large;
+    height: 600px;
+    background-color: white
+}
+
+.red {
+    color: indianred;
+    font-weight: bold;
+}
+
+#page-content p {
+    text-align: left;
+    margin-left: 15%
+}
+
+#page-content table {
+    margin-top: 3%;
+    margin-left:35%;
+    text-align: left;
+    border-collapse: collapse;
+    border: 1px solid grey;
+}
+
+#page-content th, td {
+    border: 2px solid #5c74aa;
+    padding: 15px;
+}
+
+#page-content tr:nth-child(even) {background-color: #f2f2f2;}
+
+#page-content iframe {
+    width: 50%;
+    height: 300px
 }
