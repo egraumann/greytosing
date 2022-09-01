@@ -9,29 +9,19 @@
 </head>
 <body onload="getDateDiff()">
 <div id="content">
+    <div id="circle-outer">
+    <div id="circle">
     <h1>~ Eve & Chris 2023 ~ </h1>
-    <p> Noch <span id="days" class="red"></span> Tage...</p>
+    <p id="day-para"> Noch <span id="days" class="red"></span> Tage...</p>
     <img src="assets/toppng.com-double-knot-686x385.png" alt="knot-picture"/>
-    <div id="links">
-        <ul>
-            <li><a href="#" onclick="changeContent('location')">Der Ort</a></li>
-            <li><a href="#" onclick="changeContent('agenda')"> Programm</a></li>
-            <li><a href="#" onclick="changeContent('route')"> Anfahrt</a></li>
-            <li><a href="#" onclick="changeContent('accom')"> Unterkunft</a></li>
-        </ul>
+    <p> Save the Date!</p>
     </div>
-</div>
-<div id="page" hidden>
-    <a href="#" onclick="changeContent('home')">Start</a>&nbsp;|&nbsp; <span id="tab">Ort</span>
- <div id="page-content"></div>
+    </div>
 </div>
 </body>
 </html>
 
 <script>
-    function checkAccom() {
-        document.getElementById("housing").innerText = document.getElementById("guest").value
-    }
     function getDateDiff() {
         const date = new Date("06/22/2023")
         let now = new Date();
@@ -40,77 +30,5 @@
         let days_difference = Math.floor(diff / msInDays);
 
         document.getElementById("days").innerText = days_difference.toString()
-    }
-
-    function changeContent(tab) {
-        let contentContainer = document.getElementById("content")
-        let pageContainer = document.getElementById("page")
-        let pageTextContainer = document.getElementById("page-content")
-        let tabContainer = document.getElementById("tab")
-
-        switch (tab) {
-            case 'location': {
-                pageContainer.removeAttribute('hidden')
-                contentContainer.setAttribute('hidden', 'true')
-                pageTextContainer.innerHTML =
-                    '<h2>Badekarren Norderney</h2>' +
-                    '<p>Unsere standesamtliche Trauung wird direkt am Weststrand von Norderney stattfinden und zwar im historischen Badekarren.' +
-                    '<br/> Hier treffen wir uns um <span class="red">11 Uhr</span>. Die bereitgestellten Strandk&ouml;rbe bieten genug Platz f&uuml;r alle.</p>' +
-                    '<img src="assets/badekarren.png" alt="badekarren-picture"/>'
-                tabContainer.innerText = "Ort"
-            }
-            break;
-            case 'agenda': {
-                pageContainer.removeAttribute('hidden')
-                contentContainer.setAttribute('hidden', 'true')
-                pageTextContainer.innerHTML =
-                    '<h2>Geplanter Ablauf</h2>' +
-                    '<table>' +
-                    '<tr><td>11-12 Uhr</td> <td>Trauung</td></tr>' +
-                    '<tr><td>12-13 Uhr</td> <td>Empfang</td></tr>' +
-                    '<tr><td>13-16 Uhr</td> <td>Auszeit am Strand/ FOTOS</td></tr>' +
-                    '<tr><td>17-18 Uhr</td> <td>Rückfahrt Norddeich</td>' +
-                    '<tr><td>ab 19 Uhr</td> <td> Essen in Norddeich</td></tr>' +
-                    '</table>'
-
-                tabContainer.innerText = "Programm"
-            }
-            break;
-            case 'route': {
-                pageContainer.removeAttribute('hidden')
-                contentContainer.setAttribute('hidden', 'true')
-                pageTextContainer.innerHTML = '<h2>Anfahrt und Fahrpl&auml;ne</h2>' +
-                    '<h3>Fahrplan Norddeich/Norderney & Ticketbuchung: </h3>' +
-                    '<iframe src="https://www.inselfaehre.de/norderney"></iframe>'
-
-                tabContainer.innerText = "Anfahrt"
-            }
-            break;
-            case 'accom': {
-                pageContainer.removeAttribute('hidden')
-                contentContainer.setAttribute('hidden', 'true')
-                pageTextContainer.innerHTML = '<h2>Unterkunft Norddeich</h2>' +
-                    '<p>Wir haben eine Unterkunft vom 21.-23.6.2023 für euch bereits reserviert!' +
-                    '<p>Wichtig! Diese Unterkünfte erlauben leider keine Hunde!</p>' +
-                    '<p>Um eure Unterkunft zu sehen, gebt bitte euren Namen ein!</p>' +
-                    '<p>Sollte euch diese Unterkunft nicht zusagen und ihr wollt euch was anderes buchen, lasst es uns bitte umgehend wissen!</p>' +
-                    '<input type="text" id="guest"/>' +
-                    '<input type="submit" id="check-guest" value="check" onClick="checkAccom()"/>' +
-                    '<p id="housing"></p>'
-
-                tabContainer.innerText = "Unterkunft"
-            }
-                break;
-            case 'home': {
-                contentContainer.removeAttribute('hidden')
-                pageContainer.setAttribute('hidden', 'true')
-            }
-            break;
-            default: {
-                pageContainer.removeAttribute('hidden')
-                contentContainer.setAttribute('hidden', 'true')
-            }
-
-        }
     }
 </script>
