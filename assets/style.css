@@ -6,27 +6,68 @@ body {font-family:  'DejaVu Sans Mono', sans-serif;
     background-color: azure;
     height: 100%;
     width: 100%;
+
+    background-image: linear-gradient(127deg, #9fc6cc 25%, #f9f5ff 25%, #f9f5ff 50%, #9fc6cc 50%, #9fc6cc 75%, #f9f5ff 75%, #f9f5ff 100%);
+    background-size: 50.09px 66.47px;
 }
 
 #content {
+    width:50%;
+    height: 50%;
+    margin-left: 25%;
+}
+
+#circle-outer {
+    width: 100%;
+    padding-bottom: 100%;
+    position: relative;
+}
+
+#circle {
+    position: absolute;
     font-weight: bold;
     color: #5c74aa;
     text-align: center;
-    margin-top: 25%;
-    size: A5;
-    font-size: x-large;
+    border-radius: 50%;
+    background-color: white;
+    border: 1px solid grey;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding-bottom:50%;
 }
 
-#content h1 {
-    font-size: larger;
+#circle h1 {
+    opacity: 1.0;
+    top:20%; left:50%;
+    margin-top:15%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    font-size: 2vw;
 }
 
-#content p span {
-    color: indianred;
+#day-para {
+    top: 15%;
 }
 
-#content img {
-    margin-top: -15%;
-    width: 100%;
+#circle p {
+    margin-top: 10%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    font-size: 1.5vw;
+}
+
+#circle img {
+    width:100%;
+    opacity: 0.5;
     position: relative;
+    top:50%; left:0;
+}
+
+
+.red {
+    color: indianred;
+    font-weight: bold;
 }

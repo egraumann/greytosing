@@ -4,20 +4,31 @@
     <meta charset="UTF-8">
     <title>Eve & Chris 2023</title>
     <link rel="stylesheet" href="assets/style.css" type="text/css"/>
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
 </head>
-<body>
+<body onload="getDateDiff()">
 <div id="content">
+    <div id="circle-outer">
+    <div id="circle">
     <h1>~ Eve & Chris 2023 ~ </h1>
-    <p> Noch
-        <span><script>
-            let date = new Date("06/22/2023")
-            let now = new Date();
-            let diff = Math.abs(date - now) / 1000;
-            let days_difference = Math.floor (diff / (60 * 60 * 24));
-            document.write( days_difference )
-        </script>
-        </span> Tage...</p>
-    <img src="assets/toppng.com-double-knot-686x385.png"/>
+    <p id="day-para"> Noch <span id="days" class="red"></span> Tage...</p>
+    <img src="assets/toppng.com-double-knot-686x385.png" alt="knot-picture"/>
+    <p> Save the Date!</p>
+    </div>
+    </div>
 </div>
 </body>
 </html>
+
+<script>
+    function getDateDiff() {
+        const date = new Date("06/22/2023")
+        let now = new Date();
+        const msInDays = 1000 * 60 * 60 * 24
+        let diff = Math.abs(date - now);
+        let days_difference = Math.floor(diff / msInDays);
+
+        document.getElementById("days").innerText = days_difference.toString()
+    }
+</script>
