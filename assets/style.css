@@ -16,15 +16,14 @@ body {font-family:  'DejaVu Sans Mono', sans-serif;
     #circle-outer {
         width:90%;
         height: 90%;
-        margin-top:50%
+        margin-top:50%;
     }
 
     #circle h1 {
         font-size: 16px;
-        top:20%; left:45%;
+        top:20%; left:40%;
         position: absolute;
         margin-top:15%;
-        transform: translate(-40%, -40%);
     }
 
     #circle p {
@@ -108,8 +107,9 @@ body {font-family:  'DejaVu Sans Mono', sans-serif;
     color: #5c74aa;
     text-align: center;
     border-radius: 50%;
+    box-shadow: 0 0 0 1px #efefef, 0 0 0 4px white, 0 0 0 1px #efefef;
     background-color: white;
-    border: 1px solid grey;
+    border: 4px dotted grey;
     top: 0;
     right: 0;
     bottom: 0;
