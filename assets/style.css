@@ -126,7 +126,6 @@ body {font-family:  'DejaVu Sans Mono', sans-serif;
 }
 
 #circle p {
-    margin-top: 10%;
     left: 50%;
     position: absolute;
     transform: translate(-50%, -50%);
@@ -136,7 +135,16 @@ body {font-family:  'DejaVu Sans Mono', sans-serif;
     width:100%;
     opacity: 0.5;
     position: relative;
-    top:50%; left:0;
+    top:65%; left:0; bottom:10%;
+    height: 95%
+}
+
+#save {
+    margin-top: 30%
+}
+
+#day-para {
+    margin-top: 10%
 }
 
 
