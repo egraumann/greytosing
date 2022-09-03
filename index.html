@@ -15,9 +15,19 @@
     <h1>~ Eve & Chris 2023 ~ </h1>
     <p id="day-para"> Noch <span id="days" class="red"></span> Tage...</p>
     <img src="assets/boat.svg" alt="knot-picture"/>
-    <p id="save"> Save the Date!</p>
+    <p id="save"><a href="#" onclick="changeContent('location')">Infos</a></p>
     </div>
     </div>
+</div>
+<div id="infos" hidden>
+ <ul id="info-nav"><li><a href="" onclick="changeContent('home')">Home</a></li>
+     <li id="tab">Ort</li>
+     <li><a href="#" onclick="changeContent('agenda')">Programm</a></li>
+     <li><a href="#" onclick="changeContent('route')">Anfahrt</a></li>
+     <li><a href="#" onclick="changeContent('accom')">Unterkunft</a></li>
+ </ul>
+    <h1>Ort</h1>
+    <p id="page-content">Lorem ipsum</p>
 </div>
 </body>
 </html>
@@ -39,7 +49,7 @@
 
     function changeContent(tab) {
         let contentContainer = document.getElementById("content")
-        let pageContainer = document.getElementById("page")
+        let pageContainer = document.getElementById("infos")
         let pageTextContainer = document.getElementById("page-content")
         let tabContainer = document.getElementById("tab")
 
@@ -67,8 +77,6 @@
                     '<tr><td>17-18 Uhr</td> <td>Rückfahrt Norddeich</td>' +
                     '<tr><td>ab 19 Uhr</td> <td> Essen in Norddeich</td></tr>' +
                     '</table>'
-
-                tabContainer.innerText = "Programm"
             }
                 break;
             case 'route': {
@@ -78,7 +86,6 @@
                     '<h3>Fahrplan Norddeich/Norderney & Ticketbuchung: </h3>' +
                     '<iframe src="https://www.inselfaehre.de/norderney"></iframe>'
 
-                tabContainer.innerText = "Anfahrt"
             }
                 break;
             case 'accom': {
