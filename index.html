@@ -11,20 +11,21 @@
 <body onload="getDateDiff()">
 <div id="content">
     <div id="circle-outer">
-    <div id="circle">
-    <p id="day-para"> Noch <span id="days" class="red"></span> Tage... </p>
-    <img src="assets/IMG_4340.png" alt="knot-picture"/>
-    <p id="save"><a href="#" onclick="changeContent('location')">Infos</a></p>
-    </div>
+        <div id="circle">
+            <p id="day-para"> <span id="days"></span></p>
+            <img src="assets/IMG_4340.png" alt="knot-picture"/>
+            <p id="save"><a href="#" onclick="changeContent('location')">Infos</a></p>
+        </div>
     </div>
 </div>
 <div id="infos" hidden>
- <ul id="info-nav"><li><a href="" onclick="changeContent('home')">Home</a></li>
-     <li id="tab-location">Ort</li>
-     <li id="tab-agenda"><a href="#" onclick="changeContent('agenda')">Programm</a></li>
-     <li id="tab-route"><a href="#" onclick="changeContent('route')">Anfahrt</a></li>
-     <li id="tab-accom"><a href="#" onclick="changeContent('accom')">Unterkunft</a></li>
- </ul>
+    <ul id="info-nav">
+        <li><a href="" onclick="changeContent('home')">Home</a></li>
+        <li id="tab-location">Ort</li>
+        <li id="tab-agenda"><a href="#" onclick="changeContent('agenda')">Programm</a></li>
+        <li id="tab-route"><a href="#" onclick="changeContent('route')">Anfahrt</a></li>
+        <li id="tab-accom"><a href="#" onclick="changeContent('accom')">Unterkunft</a></li>
+    </ul>
     <h1 id="info-h1">Ort</h1>
     <p id="page-content">Lorem ipsum</p>
 </div>
@@ -33,13 +34,34 @@
 
 <script>
     function getDateDiff() {
-        const date = new Date("06/22/2023")
-        let now = new Date();
-        const msInDays = 1000 * 60 * 60 * 24
-        let diff = Math.abs(date - now);
-        let days_difference = Math.floor(diff / msInDays);
+        var countDownDate = new Date("Jun 22, 2023 11:00:00").getTime();
 
-        document.getElementById("days").innerText = days_difference.toString()
+        var x = setInterval(function() {
+
+            // Get today's date and time
+            var now = new Date().getTime();
+
+            // Find the distance between now and the count down date
+            var distance = countDownDate - now;
+
+            // Time calculations for days, hours, minutes and seconds
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // Display the result in the element with id="demo"
+            document.getElementById("day-para").innerHTML = "Noch <br/> <span class='red'>" + days +
+                "</span> Tage <span class='red'>" + hours + "</span> Stunden <span class='red'>" + minutes +
+                "</span> Minuten <span class='red'>" +
+                seconds + "</span> Sekunden"
+
+            // If the count down is finished, write some text
+            if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("day-para").innerHTML = "EXPIRED";
+            }
+        }, 1000);
     }
 
     function checkAccom() {
@@ -50,19 +72,73 @@
             ['Gästehaus Wind und Meer', 'https://gastehaus-besslich-guest-house-norddeich.hotel-mix.de/']
         ])
         const houses = new Map([
-            ['Lisa Singer', {'name': 'Lisa Singer', 'hotel': 'Hotel Pension Garni', 'beds': '2 Personen', 'room': 'Doppelzimmer mit Bad', 'infos': 'Frühstück kann für 10€ pro Person und Tag dazu gebucht werden.'}],
-            ['Karina Graumann', {'name': 'Karina Graumann', 'hotel': 'Hotel Pension Garni', 'beds': '2 Personen', 'room': 'Doppelzimmer mit Bad', 'infos': 'Frühstück kann für 10€ pro Person und Tag dazu gebucht werden.'}],
-            ['Gabriel Graumann', {'name': 'Karina Graumann', 'hotel': 'Hotel Pension Garni', 'beds': '2 Personen', 'room': 'Doppelzimmer mit Bad', 'infos': 'Frühstück kann für 10€ pro Person und Tag dazu gebucht werden.'}],
-            ['Heiko Singer', {'name': 'Heiko Singer', 'hotel': 'Hotel Pension Garni', 'beds': '2 Personen', 'room': 'Doppelzimmer mit Bad', 'infos': 'Frühstück kann für 10€ pro Person und Tag dazu gebucht werden.'}],
-            ['Melanie Singer', {'name': 'Heiko Singer', 'hotel': 'Hotel Pension Garni', 'beds': '2 Personen', 'room': 'Doppelzimmer mit Bad', 'infos': 'Frühstück kann für 10€ pro Person und Tag dazu gebucht werden.'}],
-            ['Melanie Ranisch', {'name': 'Melanie Ranisch', 'hotel': 'Hotel Pension Garni', 'beds': '1 Person', 'room': 'Einzelzimmer mit Bad', 'infos': 'Frühstück kann für 10€ pro Person und Tag dazu gebucht werden.'}],
-            ['Klaus Graumann', {'name': 'Klaus Graumann', 'hotel': 'Gästehaus Wind und Meer', 'beds': '2 Personen', 'room': 'Doppelzimmer mit Bad', 'infos': 'Frühstück inklusive; mit Balkon und Gartenblick'}],
-            ['Hildegund Graumann', {'name': 'Klaus Graumann', 'hotel': 'Gästehaus Wind und Meer', 'beds': '2 Personen', 'room': 'Doppelzimmer mit Bad', 'infos': 'Frühstück inklusive; mit Balkon und Gartenblick'}],
-            ['Hilde Graumann', {'name': 'Klaus Graumann', 'hotel': 'Gästehaus Wind und Meer', 'beds': '2 Personen', 'room': 'Doppelzimmer mit Bad', 'infos': 'Frühstück inklusive; mit Balkon und Gartenblick'}],
+            ['Lisa Singer', {
+                'name': 'Lisa Singer',
+                'hotel': 'Hotel Pension Garni',
+                'beds': '2 Personen',
+                'room': 'Doppelzimmer mit Bad',
+                'infos': 'Frühstück kann für 10€ pro Person und Tag dazu gebucht werden.'
+            }],
+            ['Karina Graumann', {
+                'name': 'Karina Graumann',
+                'hotel': 'Hotel Pension Garni',
+                'beds': '2 Personen',
+                'room': 'Doppelzimmer mit Bad',
+                'infos': 'Frühstück kann für 10€ pro Person und Tag dazu gebucht werden.'
+            }],
+            ['Gabriel Graumann', {
+                'name': 'Karina Graumann',
+                'hotel': 'Hotel Pension Garni',
+                'beds': '2 Personen',
+                'room': 'Doppelzimmer mit Bad',
+                'infos': 'Frühstück kann für 10€ pro Person und Tag dazu gebucht werden.'
+            }],
+            ['Heiko Singer', {
+                'name': 'Heiko Singer',
+                'hotel': 'Hotel Pension Garni',
+                'beds': '2 Personen',
+                'room': 'Doppelzimmer mit Bad',
+                'infos': 'Frühstück kann für 10€ pro Person und Tag dazu gebucht werden.'
+            }],
+            ['Melanie Singer', {
+                'name': 'Heiko Singer',
+                'hotel': 'Hotel Pension Garni',
+                'beds': '2 Personen',
+                'room': 'Doppelzimmer mit Bad',
+                'infos': 'Frühstück kann für 10€ pro Person und Tag dazu gebucht werden.'
+            }],
+            ['Melanie Ranisch', {
+                'name': 'Melanie Ranisch',
+                'hotel': 'Hotel Pension Garni',
+                'beds': '1 Person',
+                'room': 'Einzelzimmer mit Bad',
+                'infos': 'Frühstück kann für 10€ pro Person und Tag dazu gebucht werden.'
+            }],
+            ['Klaus Graumann', {
+                'name': 'Klaus Graumann',
+                'hotel': 'Gästehaus Wind und Meer',
+                'beds': '2 Personen',
+                'room': 'Doppelzimmer mit Bad',
+                'infos': 'Frühstück inklusive; mit Balkon und Gartenblick'
+            }],
+            ['Hildegund Graumann', {
+                'name': 'Klaus Graumann',
+                'hotel': 'Gästehaus Wind und Meer',
+                'beds': '2 Personen',
+                'room': 'Doppelzimmer mit Bad',
+                'infos': 'Frühstück inklusive; mit Balkon und Gartenblick'
+            }],
+            ['Hilde Graumann', {
+                'name': 'Klaus Graumann',
+                'hotel': 'Gästehaus Wind und Meer',
+                'beds': '2 Personen',
+                'room': 'Doppelzimmer mit Bad',
+                'infos': 'Frühstück inklusive; mit Balkon und Gartenblick'
+            }],
         ])
         document.getElementById("housing").innerHTML =
             '<h1>' + houses.get(name)['name'] + ' </h1>' +
-            '<p><b><a href="' + houses_links.get(houses.get(name)['hotel']) + '" target="_blank">' +  houses.get(name)['hotel'] + '</a></b>' +
+            '<p><b><a href="' + houses_links.get(houses.get(name)['hotel']) + '" target="_blank">' + houses.get(name)['hotel'] + '</a></b>' +
             '<br/><br/> 21.06.2023-23.06.2023 (2 Nächte)' +
             '<br/>' + houses.get(name)['beds'] +
             '<br/>' + houses.get(name)['room'] +
