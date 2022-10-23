@@ -349,4 +349,8 @@ body {font-family:  'DejaVu Sans Mono', sans-serif;
     color: indianred;
 }
 
+#infos p {
+    width: 90%;
+}
+
 
