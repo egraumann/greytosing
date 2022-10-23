@@ -11,13 +11,21 @@ body {font-family:  'DejaVu Sans Mono', sans-serif;
     background-size: 50.09px 66.47px;
 }
 
+#page-content {
+    width: 100%;
+    height: 100%
+}
+
 #infos {
     width: 80%;
     height: 100%;
     background-color: white;
     position: absolute;
-    margin-left: 7%;
-    margin-top: 4%
+}
+
+#infos iframe {
+    height: 60%;
+    width: 80%
 }
 
 #info-nav ul, li{
@@ -25,18 +33,6 @@ body {font-family:  'DejaVu Sans Mono', sans-serif;
     padding: 5px;
     list-style-type: none;
     border-right: 1px solid grey;
-}
-
-#infos h1{
-    margin-top: 5%;
-    margin-left: 3%;
-    position: absolute;
-}
-
-#infos p{
-    margin-top: 10%;
-    margin-left: 3%;
-    position: absolute;
 }
 
 /* phones */
@@ -57,6 +53,22 @@ body {font-family:  'DejaVu Sans Mono', sans-serif;
     #circle p {
         font-size: 14px;
     }
+
+    #page-content {
+        height: 400px;
+    }
+
+    #page-content img {
+        width: 60%;
+    }
+
+    #housing p {
+        font-size: smaller;
+    }
+
+    #infos {
+        height: 150%;
+    }
 }
 
 /* tablet */
@@ -65,6 +77,15 @@ body {font-family:  'DejaVu Sans Mono', sans-serif;
         width:90%;
         height: 90%;
         margin-left: 5%;
+    }
+
+    #infos h1{
+        margin-top: 15%;
+        font-size: smaller;
+    }
+
+    #save {
+        margin-top: 15%;
     }
 
     #circle h1 {
@@ -78,6 +99,65 @@ body {font-family:  'DejaVu Sans Mono', sans-serif;
     #circle p {
         font-size: 14px;
     }
+
+    #page-content p {
+        margin-left: 0;
+        padding: 4px;
+        width: 90%;
+    }
+
+    #page-content img {
+        width: 60%;
+    }
+
+    #save {
+        margin-top: 35%
+    }
+
+    #day-para {
+        margin-top: 10%
+    }
+
+    #housing p {
+        line-height: 150%;
+    }
+
+    #page-content {
+        font-size: smaller;
+    }
+
+    #page-content p {
+        font-size: smaller;
+    }
+
+    #page-content table {
+        font-size: 10px;
+        width: 90%;
+    }
+
+    #page-content h3 {
+        font-size: smaller;
+        margin-left: 5%;
+    }
+
+    #infos h1{
+        margin-top: 15%;
+        font-size: smaller;
+    }
+
+    #info-nav {
+        font-size: 10px;
+    }
+
+    #guest {
+        margin-top: -10px;
+    }
+
+    #infos {
+        height: 150%;
+    }
+
+
 }
 
 /* tablet2 */
@@ -86,6 +166,12 @@ body {font-family:  'DejaVu Sans Mono', sans-serif;
         width:90%;
         height: 90%;
         margin-left: 5%;
+    }
+
+
+    #housing {
+        margin-top: 10%;
+        font-size: smaller;
     }
 
     #circle h1 {
@@ -98,6 +184,22 @@ body {font-family:  'DejaVu Sans Mono', sans-serif;
 
     #circle p {
         font-size: 25px;
+    }
+
+    #infos h1{
+        margin-top: 15%;
+    }
+
+    #save {
+        margin-top: 35%;
+    }
+
+    #page-content img {
+        width: 60%;
+    }
+
+    #infos {
+        height: 150%;
     }
 }
 
@@ -120,6 +222,26 @@ body {font-family:  'DejaVu Sans Mono', sans-serif;
     #circle p {
         font-size: 1.5vm;
     }
+
+    #save {
+        margin-top: 35%
+    }
+
+    #infos h1{
+        margin-top: 10%;
+    }
+
+    #page-content img {
+        width: 60%;
+    }
+
+    #infos {
+        height: 150%;
+    }
+}
+
+#info-h1 {
+    margin-left: 5%;
 }
 
 #circle-outer {
@@ -160,23 +282,71 @@ body {font-family:  'DejaVu Sans Mono', sans-serif;
 }
 
 #circle img {
-    width:100%;
-    opacity: 0.5;
+    opacity: 0.4;
     position: relative;
-    top:65%; left:0; bottom:10%;
-    height: 95%
+    border-radius: 50px;
+    top:60%; left:0; bottom:10%;
+    height: 90%
 }
 
-#save {
-    margin-top: 30%
+#page-content td {
+    padding: 10px;
+    border-left: 1px solid #efefef;
 }
 
-#day-para {
-    margin-top: 10%
+#page-content table {
+    border-top: 1px solid #f2f2f2;
+    border-bottom: 1px solid #f2f2f2;
+    border-right: 1px solid#f2f2f2;
 }
+
+#page-content {
+    margin-left: 5%;
+}
+
+#page-content tr:nth-child(even){background-color: #f2f2f2;}
 
 
 .red {
     color: indianred;
     font-weight: bold;
 }
+
+#housing a, a:visited {
+    color: #5c74aa;
+}
+
+#housing h1 {
+    color: #546da6;
+}
+
+#housing p {
+    border: 1px dotted grey;
+    padding: 10px;
+    background-color: #f9f5ff;
+}
+
+#housing {
+    width: 90%;
+    margin-top: -2%;
+    margin-bottom: 10%;
+}
+
+#save a {
+    text-decoration: none;
+}
+
+#save a:hover {
+    text-decoration: underline;
+    color: indianred;
+}
+
+#housing a{
+    cursor: help;
+}
+
+#housing a:hover{
+    color: indianred;
+}
+
+

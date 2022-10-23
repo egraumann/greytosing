@@ -12,21 +12,20 @@
 <div id="content">
     <div id="circle-outer">
     <div id="circle">
-    <h1>~ Eve & Chris 2023 ~ </h1>
-    <p id="day-para"> Noch <span id="days" class="red"></span> Tage...</p>
-    <img src="assets/boat.svg" alt="knot-picture"/>
+    <p id="day-para"> Noch <span id="days" class="red"></span> Tage... </p>
+    <img src="assets/IMG_4340.png" alt="knot-picture"/>
     <p id="save"><a href="#" onclick="changeContent('location')">Infos</a></p>
     </div>
     </div>
 </div>
 <div id="infos" hidden>
  <ul id="info-nav"><li><a href="" onclick="changeContent('home')">Home</a></li>
-     <li id="tab">Ort</li>
-     <li><a href="#" onclick="changeContent('agenda')">Programm</a></li>
-     <li><a href="#" onclick="changeContent('route')">Anfahrt</a></li>
-     <li><a href="#" onclick="changeContent('accom')">Unterkunft</a></li>
+     <li id="tab-location">Ort</li>
+     <li id="tab-agenda"><a href="#" onclick="changeContent('agenda')">Programm</a></li>
+     <li id="tab-route"><a href="#" onclick="changeContent('route')">Anfahrt</a></li>
+     <li id="tab-accom"><a href="#" onclick="changeContent('accom')">Unterkunft</a></li>
  </ul>
-    <h1>Ort</h1>
+    <h1 id="info-h1">Ort</h1>
     <p id="page-content">Lorem ipsum</p>
 </div>
 </body>
@@ -44,63 +43,113 @@
     }
 
     function checkAccom() {
-        document.getElementById("housing").innerText = document.getElementById("guest").value
+        let name = document.getElementById("guest").value
+
+        const houses_links = new Map([
+            ['Hotel Pension Garni', 'https://hotel-pension-garni-haus-am-strand-norddeich-norden.hotel-mix.de/'],
+            ['Gästehaus Wind und Meer', 'https://gastehaus-besslich-guest-house-norddeich.hotel-mix.de/']
+        ])
+        const houses = new Map([
+            ['Lisa Singer', {'name': 'Lisa Singer', 'hotel': 'Hotel Pension Garni', 'beds': '2 Personen', 'room': 'Doppelzimmer mit Bad', 'infos': 'Frühstück kann für 10€ pro Person und Tag dazu gebucht werden.'}],
+            ['Karina Graumann', {'name': 'Karina Graumann', 'hotel': 'Hotel Pension Garni', 'beds': '2 Personen', 'room': 'Doppelzimmer mit Bad', 'infos': 'Frühstück kann für 10€ pro Person und Tag dazu gebucht werden.'}],
+            ['Gabriel Graumann', {'name': 'Karina Graumann', 'hotel': 'Hotel Pension Garni', 'beds': '2 Personen', 'room': 'Doppelzimmer mit Bad', 'infos': 'Frühstück kann für 10€ pro Person und Tag dazu gebucht werden.'}],
+            ['Heiko Singer', {'name': 'Heiko Singer', 'hotel': 'Hotel Pension Garni', 'beds': '2 Personen', 'room': 'Doppelzimmer mit Bad', 'infos': 'Frühstück kann für 10€ pro Person und Tag dazu gebucht werden.'}],
+            ['Melanie Singer', {'name': 'Heiko Singer', 'hotel': 'Hotel Pension Garni', 'beds': '2 Personen', 'room': 'Doppelzimmer mit Bad', 'infos': 'Frühstück kann für 10€ pro Person und Tag dazu gebucht werden.'}],
+            ['Melanie Ranisch', {'name': 'Melanie Ranisch', 'hotel': 'Hotel Pension Garni', 'beds': '1 Person', 'room': 'Einzelzimmer mit Bad', 'infos': 'Frühstück kann für 10€ pro Person und Tag dazu gebucht werden.'}],
+            ['Klaus Graumann', {'name': 'Klaus Graumann', 'hotel': 'Gästehaus Wind und Meer', 'beds': '2 Personen', 'room': 'Doppelzimmer mit Bad', 'infos': 'Frühstück inklusive; mit Balkon und Gartenblick'}],
+            ['Hildegund Graumann', {'name': 'Klaus Graumann', 'hotel': 'Gästehaus Wind und Meer', 'beds': '2 Personen', 'room': 'Doppelzimmer mit Bad', 'infos': 'Frühstück inklusive; mit Balkon und Gartenblick'}],
+            ['Hilde Graumann', {'name': 'Klaus Graumann', 'hotel': 'Gästehaus Wind und Meer', 'beds': '2 Personen', 'room': 'Doppelzimmer mit Bad', 'infos': 'Frühstück inklusive; mit Balkon und Gartenblick'}],
+        ])
+        document.getElementById("housing").innerHTML =
+            '<h1>' + houses.get(name)['name'] + ' </h1>' +
+            '<p><b><a href="' + houses_links.get(houses.get(name)['hotel']) + '" target="_blank">' +  houses.get(name)['hotel'] + '</a></b>' +
+            '<br/><br/> 21.06.2023-23.06.2023 (2 Nächte)' +
+            '<br/>' + houses.get(name)['beds'] +
+            '<br/>' + houses.get(name)['room'] +
+            '<br/><br/><b>&#9432;&nbsp;' + houses.get(name)['infos'] + '</b>' +
+            ' </p>'
     }
 
     function changeContent(tab) {
         let contentContainer = document.getElementById("content")
         let pageContainer = document.getElementById("infos")
         let pageTextContainer = document.getElementById("page-content")
-        let tabContainer = document.getElementById("tab")
+        let tabOrtContainer = document.getElementById("tab-location")
+        let tabProgrammContainer = document.getElementById("tab-agenda")
+        let tabRouteContainer = document.getElementById("tab-route")
+        let tabAccomContainer = document.getElementById("tab-accom")
+        let defaultH1 = document.getElementById("info-h1")
 
         switch (tab) {
             case 'location': {
                 pageContainer.removeAttribute('hidden')
                 contentContainer.setAttribute('hidden', 'true')
                 pageTextContainer.innerHTML =
-                    '<h2>Badekarren Norderney</h2>' +
                     '<p>Unsere standesamtliche Trauung wird direkt am Weststrand von Norderney stattfinden und zwar im historischen Badekarren.' +
                     '<br/> Hier treffen wir uns um <span class="red">11 Uhr</span>. Die bereitgestellten Strandk&ouml;rbe bieten genug Platz f&uuml;r alle.</p>' +
                     '<img src="assets/badekarren.png" alt="badekarren-picture"/>'
-                tabContainer.innerText = "Ort"
+                tabOrtContainer.innerHTML = "Ort"
+                defaultH1.innerText = "Badekarren Norderney"
+
+                tabProgrammContainer.innerHTML = "<a href=\"#\" onclick=\"changeContent('agenda')\">Programm</a>"
+                tabRouteContainer.innerHTML = "<a href=\"#\" onclick=\"changeContent('route')\">Anfahrt</a>"
+                tabAccomContainer.innerHTML = "<a href=\"#\" onclick=\"changeContent('accom')\">Unterkunft</a>"
             }
                 break;
             case 'agenda': {
                 pageContainer.removeAttribute('hidden')
                 contentContainer.setAttribute('hidden', 'true')
                 pageTextContainer.innerHTML =
-                    '<h2>Geplanter Ablauf</h2>' +
                     '<table>' +
                     '<tr><td>11-12 Uhr</td> <td>Trauung</td></tr>' +
-                    '<tr><td>12-13 Uhr</td> <td>Empfang</td></tr>' +
-                    '<tr><td>13-16 Uhr</td> <td>Auszeit am Strand/ FOTOS</td></tr>' +
-                    '<tr><td>17-18 Uhr</td> <td>Rückfahrt Norddeich</td>' +
-                    '<tr><td>ab 19 Uhr</td> <td> Essen in Norddeich</td></tr>' +
+                    '<tr><td>12-12.30 Uhr</td> <td>Sekt + Gruppenfotos</td></tr>' +
+                    '<tr><td>12.30-14 Uhr</td> <td>Snacks im Storchennest / FOTOS</td></tr>' +
+                    '<tr><td>14-16</td> <td>Lunch in Norderney</td>' +
+                    '<tr><td>16-19 Uhr</td> <td>Individuelle Freizeit und Rückfahrt Norddeich (späteste Rückfahrt <b>18.15</b>!) </td>' +
+                    '<tr><td>19.30-21.30 Uhr</td> <td> Dinner in Norddeich</td></tr>' +
                     '</table>'
+
+                tabProgrammContainer.innerHTML = "Programm"
+                tabOrtContainer.innerHTML = "<a href=\"#\" onclick=\"changeContent('location')\">Ort</a>"
+                tabRouteContainer.innerHTML = "<a href=\"#\" onclick=\"changeContent('route')\">Anfahrt</a>"
+                tabAccomContainer.innerHTML = "<a href=\"#\" onclick=\"changeContent('accom')\">Unterkunft</a>"
+                defaultH1.innerText = "Ablauf"
             }
                 break;
             case 'route': {
                 pageContainer.removeAttribute('hidden')
                 contentContainer.setAttribute('hidden', 'true')
-                pageTextContainer.innerHTML = '<h2>Anfahrt und Fahrpl&auml;ne</h2>' +
+                pageTextContainer.innerHTML =
                     '<h3>Fahrplan Norddeich/Norderney & Ticketbuchung: </h3>' +
                     '<iframe src="https://www.inselfaehre.de/norderney"></iframe>'
+                tabRouteContainer.innerHTML = "Anfahrt"
+                defaultH1.innerText = "Anfahrt und Fahrpläne"
+
+                tabProgrammContainer.innerHTML = "<a href=\"#\" onclick=\"changeContent('agenda')\">Programm</a>"
+                tabOrtContainer.innerHTML = "<a href=\"#\" onclick=\"changeContent('location')\">Ort</a>"
+                tabAccomContainer.innerHTML = "<a href=\"#\" onclick=\"changeContent('accom')\">Unterkunft</a>"
 
             }
                 break;
             case 'accom': {
                 pageContainer.removeAttribute('hidden')
                 contentContainer.setAttribute('hidden', 'true')
-                pageTextContainer.innerHTML = '<h2>Unterkunft Norddeich</h2>' +
-                    '<p>Wir haben eine Unterkunft vom 21.-23.6.2023 für euch bereits reserviert!' +
-                    '<p>Wichtig! Diese Unterkünfte erlauben leider keine Hunde!</p>' +
-                    '<p>Um eure Unterkunft zu sehen, gebt bitte euren Namen ein!</p>' +
-                    '<p>Sollte euch diese Unterkunft nicht zusagen und ihr wollt euch was anderes buchen, lasst es uns bitte umgehend wissen!</p>' +
-                    '<input type="text" id="guest"/>' +
+                pageTextContainer.innerHTML =
+                    '<p>Wir haben eine Unterkunft vom 21.-23.6.2023 für euch bereits reserviert.' +
+                    '<br /> Um eure Unterkunft zu sehen, gebt bitte unten euren <b>Vor- und Nachnamen</b> ein.' +
+                    '<br /><br /><b>Wichtig: Diese Unterkünfte erlauben leider keine Hunde!</b>' +
+                    '<br/><br/> Sollte euch diese Unterkunft nicht zusagen und ihr wollt euch selbst lieber etwas anderes buchen, lasst es uns bitte umgehend wissen!' +
+                    '</p>' +
+                    '<br/><br/><input type="text" id="guest" value="Vorname Nachname"/>' +
                     '<input type="submit" id="check-guest" value="check" onClick="checkAccom()"/>' +
-                    '<p id="housing"></p>'
+                    '<div id="housing"></div>'
 
-                tabContainer.innerText = "Unterkunft"
+                tabAccomContainer.innerText = "Unterkunft"
+                defaultH1.innerText = "Unterkunft Norddeich"
+
+                tabProgrammContainer.innerHTML = "<a href=\"#\" onclick=\"changeContent('agenda')\">Programm</a>"
+                tabOrtContainer.innerHTML = "<a href=\"#\" onclick=\"changeContent('location')\">Ort</a>"
+                tabRouteContainer.innerHTML = "<a href=\"#\" onclick=\"changeContent('route')\">Anfahrt</a>"
             }
                 break;
             case 'home': {
