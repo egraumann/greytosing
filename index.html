@@ -21,7 +21,7 @@
 <div id="content">
     <div id="circle-outer">
         <div id="circle">
-            <p id="day-para"> <span id="days"></span></p>
+            <p id="day-para"> Noch <br/>  <span id="days"></span></p>
             <img src="assets/IMG_4340.png" alt="knot-picture"/>
             <p id="save"><a href="#" onclick="changeContent('location')">Infos</a></p>
         </div>
@@ -60,7 +60,8 @@
             var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
             // Display the result in the element with id="demo"
-            document.getElementById("day-para").innerHTML = "Noch <br/> <span class='red'>" + days +
+            document.getElementById("days").innerHTML = "<span class='red'>" +
+                days +
                 "</span> Tage <span class='red'>" + hours + "</span> Stunden <span class='red'>" + minutes +
                 "</span> Minuten <span class='red'>" +
                 seconds + "</span> Sekunden"
@@ -70,7 +71,7 @@
                 clearInterval(x);
                 document.getElementById("day-para").innerHTML = "EXPIRED";
             }
-        }, 1000);
+        }, 0);
     }
 
     function checkAccom() {
