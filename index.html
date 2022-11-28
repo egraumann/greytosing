@@ -23,7 +23,7 @@
     <div id="circle-outer">
     <div id="circle">
     <p id="day-para"> Noch <br/> <span id="days"></span></p>
-    <img src="assets/IMG_4340.png" alt="knot-picture"/>
+    <img src="assets/IMG_9242.png" alt="couple-picture"/>
         <p id="save"> <a href="#" onclick="changeContent('location')">Infos</a></p>
     </div>
     </div>
@@ -34,7 +34,6 @@
         <li id="tab-location">Ort</li>
         <li id="tab-agenda"><a href="#" onclick="changeContent('agenda')">Programm</a></li>
         <li id="tab-route"><a href="#" onclick="changeContent('route')">Anfahrt</a></li>
-        <li id="tab-accom"><a href="#" onclick="changeContent('accom')">Unterkunft</a></li>
     </ul>
     <h1 id="info-h1">Ort</h1>
     <p id="page-content">Lorem ipsum</p>
@@ -75,88 +74,6 @@
         }, 0);
     }
 
-    function checkAccom() {
-        let name = document.getElementById("guest").value
-
-        const houses_links = new Map([
-            ['Hotel Pension Garni', 'https://hotel-pension-garni-haus-am-strand-norddeich-norden.hotel-mix.de/'],
-            ['Gästehaus Wind und Meer', 'https://gastehaus-besslich-guest-house-norddeich.hotel-mix.de/']
-        ])
-        const houses = new Map([
-            ['Lisa Singer', {
-                'name': 'Lisa Singer',
-                'hotel': 'Hotel Pension Garni',
-                'beds': '2 Personen',
-                'room': 'Doppelzimmer mit Bad',
-                'infos': 'Frühstück kann für 10€ pro Person und Tag dazu gebucht werden.'
-            }],
-            ['Karina Graumann', {
-                'name': 'Karina Graumann',
-                'hotel': 'Hotel Pension Garni',
-                'beds': '2 Personen',
-                'room': 'Doppelzimmer mit Bad',
-                'infos': 'Frühstück kann für 10€ pro Person und Tag dazu gebucht werden.'
-            }],
-            ['Gabriel Graumann', {
-                'name': 'Karina Graumann',
-                'hotel': 'Hotel Pension Garni',
-                'beds': '2 Personen',
-                'room': 'Doppelzimmer mit Bad',
-                'infos': 'Frühstück kann für 10€ pro Person und Tag dazu gebucht werden.'
-            }],
-            ['Heiko Singer', {
-                'name': 'Heiko Singer',
-                'hotel': 'Hotel Pension Garni',
-                'beds': '2 Personen',
-                'room': 'Doppelzimmer mit Bad',
-                'infos': 'Frühstück kann für 10€ pro Person und Tag dazu gebucht werden.'
-            }],
-            ['Melanie Singer', {
-                'name': 'Heiko Singer',
-                'hotel': 'Hotel Pension Garni',
-                'beds': '2 Personen',
-                'room': 'Doppelzimmer mit Bad',
-                'infos': 'Frühstück kann für 10€ pro Person und Tag dazu gebucht werden.'
-            }],
-            ['Melanie Ranisch', {
-                'name': 'Melanie Ranisch',
-                'hotel': 'Hotel Pension Garni',
-                'beds': '1 Person',
-                'room': 'Einzelzimmer mit Bad',
-                'infos': 'Frühstück kann für 10€ pro Person und Tag dazu gebucht werden.'
-            }],
-            ['Klaus Graumann', {
-                'name': 'Klaus Graumann',
-                'hotel': 'Gästehaus Wind und Meer',
-                'beds': '2 Personen',
-                'room': 'Doppelzimmer mit Bad',
-                'infos': 'Frühstück inklusive; mit Balkon und Gartenblick'
-            }],
-            ['Hildegund Graumann', {
-                'name': 'Klaus Graumann',
-                'hotel': 'Gästehaus Wind und Meer',
-                'beds': '2 Personen',
-                'room': 'Doppelzimmer mit Bad',
-                'infos': 'Frühstück inklusive; mit Balkon und Gartenblick'
-            }],
-            ['Hilde Graumann', {
-                'name': 'Klaus Graumann',
-                'hotel': 'Gästehaus Wind und Meer',
-                'beds': '2 Personen',
-                'room': 'Doppelzimmer mit Bad',
-                'infos': 'Frühstück inklusive; mit Balkon und Gartenblick'
-            }],
-        ])
-        document.getElementById("housing").innerHTML =
-            '<h1>' + houses.get(name)['name'] + ' </h1>' +
-            '<p><b><a href="' + houses_links.get(houses.get(name)['hotel']) + '" target="_blank">' + houses.get(name)['hotel'] + '</a></b>' +
-            '<br/><br/> 21.06.2023-23.06.2023 (2 Nächte)' +
-            '<br/>' + houses.get(name)['beds'] +
-            '<br/>' + houses.get(name)['room'] +
-            '<br/><br/><b>&#9432;&nbsp;' + houses.get(name)['infos'] + '</b>' +
-            ' </p>'
-    }
-
     function changeContent(tab) {
         let contentContainer = document.getElementById("content")
         let pageContainer = document.getElementById("infos")
@@ -164,7 +81,6 @@
         let tabOrtContainer = document.getElementById("tab-location")
         let tabProgrammContainer = document.getElementById("tab-agenda")
         let tabRouteContainer = document.getElementById("tab-route")
-        let tabAccomContainer = document.getElementById("tab-accom")
         let defaultH1 = document.getElementById("info-h1")
 
         switch (tab) {
@@ -180,7 +96,6 @@
 
                 tabProgrammContainer.innerHTML = "<a href=\"#\" onclick=\"changeContent('agenda')\">Programm</a>"
                 tabRouteContainer.innerHTML = "<a href=\"#\" onclick=\"changeContent('route')\">Anfahrt</a>"
-                tabAccomContainer.innerHTML = "<a href=\"#\" onclick=\"changeContent('accom')\">Unterkunft</a>"
             }
                 break;
             case 'agenda': {
@@ -199,7 +114,6 @@
                 tabProgrammContainer.innerHTML = "Programm"
                 tabOrtContainer.innerHTML = "<a href=\"#\" onclick=\"changeContent('location')\">Ort</a>"
                 tabRouteContainer.innerHTML = "<a href=\"#\" onclick=\"changeContent('route')\">Anfahrt</a>"
-                tabAccomContainer.innerHTML = "<a href=\"#\" onclick=\"changeContent('accom')\">Unterkunft</a>"
                 defaultH1.innerText = "(Geplanter) Ablauf"
             }
                 break;
@@ -214,29 +128,6 @@
 
                 tabProgrammContainer.innerHTML = "<a href=\"#\" onclick=\"changeContent('agenda')\">Programm</a>"
                 tabOrtContainer.innerHTML = "<a href=\"#\" onclick=\"changeContent('location')\">Ort</a>"
-                tabAccomContainer.innerHTML = "<a href=\"#\" onclick=\"changeContent('accom')\">Unterkunft</a>"
-
-            }
-                break;
-            case 'accom': {
-                pageContainer.removeAttribute('hidden')
-                contentContainer.setAttribute('hidden', 'true')
-                pageTextContainer.innerHTML =
-                    '<p>Wir haben eine Unterkunft vom 21.-23.6.2023 für euch bereits reserviert.' +
-                    '<br /> Um eure Unterkunft zu sehen, gebt bitte unten euren <b>Vor- und Nachnamen</b> ein.' +
-                    '<br /><br /><b>Wichtig: Diese Unterkünfte erlauben leider keine Hunde!</b>' +
-                    '<br/><br/> Sollte euch diese Unterkunft nicht zusagen und ihr wollt euch selbst lieber etwas anderes buchen, lasst es uns bitte umgehend wissen!' +
-                    '</p>' +
-                    '<br/><br/><input type="text" id="guest" value="Vorname Nachname"/>' +
-                    '<input type="submit" id="check-guest" value="check" onClick="checkAccom()"/>' +
-                    '<div id="housing"></div>'
-
-                tabAccomContainer.innerText = "Unterkunft"
-                defaultH1.innerText = "Unterkunft Norddeich"
-
-                tabProgrammContainer.innerHTML = "<a href=\"#\" onclick=\"changeContent('agenda')\">Programm</a>"
-                tabOrtContainer.innerHTML = "<a href=\"#\" onclick=\"changeContent('location')\">Ort</a>"
-                tabRouteContainer.innerHTML = "<a href=\"#\" onclick=\"changeContent('route')\">Anfahrt</a>"
             }
                 break;
             case 'home': {
