@@ -28,6 +28,12 @@ body {font-family: "Hiragino Kaku Gothic Pro", sans-serif;
     width: 80%
 }
 
+.guesthouses li {
+    border: 0;
+    color: #5c74aa;
+    font-weight: bold;
+}
+
 #info-nav ul, li{
     float: left;
     padding: 5px;

@@ -34,6 +34,7 @@
         <li id="tab-location">Ort</li>
         <li id="tab-agenda"><a href="#" onclick="changeContent('agenda')">Programm</a></li>
         <li id="tab-route"><a href="#" onclick="changeContent('route')">Anfahrt</a></li>
+        <li id="tab-accomm"><a href="#" onclick="changeContent('accomm')">Unterkunft</a></li>
     </ul>
     <h1 id="info-h1">Ort</h1>
     <p id="page-content">Lorem ipsum</p>
@@ -81,6 +82,7 @@
         let tabOrtContainer = document.getElementById("tab-location")
         let tabProgrammContainer = document.getElementById("tab-agenda")
         let tabRouteContainer = document.getElementById("tab-route")
+        let tabAccommContainer = document.getElementById("tab-accomm")
         let defaultH1 = document.getElementById("info-h1")
 
         switch (tab) {
@@ -96,6 +98,8 @@
 
                 tabProgrammContainer.innerHTML = "<a href=\"#\" onclick=\"changeContent('agenda')\">Programm</a>"
                 tabRouteContainer.innerHTML = "<a href=\"#\" onclick=\"changeContent('route')\">Anfahrt</a>"
+                tabAccommContainer.innerHTML =
+                    "<a href=\"#\" onclick=\"changeContent('accomm')\">Unterkunft</a>"
             }
                 break;
             case 'agenda': {
@@ -114,6 +118,8 @@
                 tabProgrammContainer.innerHTML = "Programm"
                 tabOrtContainer.innerHTML = "<a href=\"#\" onclick=\"changeContent('location')\">Ort</a>"
                 tabRouteContainer.innerHTML = "<a href=\"#\" onclick=\"changeContent('route')\">Anfahrt</a>"
+                tabAccommContainer.innerHTML =
+                    "<a href=\"#\" onclick=\"changeContent('accomm')\">Unterkunft</a>"
                 defaultH1.innerText = "(Geplanter) Ablauf"
             }
                 break;
@@ -125,6 +131,27 @@
                     '<iframe src="https://www.inselfaehre.de/norderney"></iframe>'
                 tabRouteContainer.innerHTML = "Anfahrt"
                 defaultH1.innerText = "Anfahrt und Fahrpläne"
+
+                tabProgrammContainer.innerHTML = "<a href=\"#\" onclick=\"changeContent('agenda')\">Programm</a>"
+                tabOrtContainer.innerHTML = "<a href=\"#\" onclick=\"changeContent('location')\">Ort</a>"
+                tabAccommContainer.innerHTML =
+                    "<a href=\"#\" onclick=\"changeContent('accomm')\">Unterkunft</a>"
+            }
+                break;
+            case 'accomm': {
+                pageContainer.removeAttribute('hidden')
+                contentContainer.setAttribute('hidden', 'true')
+                pageTextContainer.innerHTML =
+                        '<p> Wir haben für euch jeweils Einzel- bzw. Doppelzimmer vom 21.-23.6.2023 mit Frühstück ' +
+                    'in einem der folgenden Gasthäuser gebucht in Norddeich:' +
+                    '<ol class="guesthouses"><li><a href="https://www.windundmeer5.de/" target="_blank">Gästehaus Wind & Meer</a> | </li> <li><a href="https://haus-am-strand-norddeich.de/" target="_blank"> Hotel Pension Garni am Strand</a></li></ol></p> &nbsp;' +
+                    '<p> Wir würden die Kosten für die 2 Übernachtungen dort für euch übernehmen.</p>' +
+                    'Sollten euch diese Unterkünfte nicht zusagen oder habt ihr vor, z.B. länger oder woanders zu bleiben,' +
+                    ' sagt uns bitte Bescheid, damit wir die Zimmer stornieren können.</p>' +
+                        '<b> Beide Unterkünfte erlauben leider keine Hunde und sind Nichtraucher-Zimmer!</b>'
+
+                tabAccommContainer.innerHTML = "Unterkunft"
+                defaultH1.innerText = "Unterkunft"
 
                 tabProgrammContainer.innerHTML = "<a href=\"#\" onclick=\"changeContent('agenda')\">Programm</a>"
                 tabOrtContainer.innerHTML = "<a href=\"#\" onclick=\"changeContent('location')\">Ort</a>"
