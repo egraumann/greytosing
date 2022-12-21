@@ -30,7 +30,7 @@
 </div>
 <div id="infos" hidden>
     <ul id="info-nav">
-        <li><a href="" onclick="changeContent('home')">Home</a></li>
+        <li><a href="" onclick="changeContent('home')">Start</a></li>
         <li id="tab-location">Ort</li>
         <li id="tab-agenda"><a href="#" onclick="changeContent('agenda')">Programm</a></li>
         <li id="tab-route"><a href="#" onclick="changeContent('route')">Anfahrt</a></li>
@@ -155,6 +155,7 @@
 
                 tabProgrammContainer.innerHTML = "<a href=\"#\" onclick=\"changeContent('agenda')\">Programm</a>"
                 tabOrtContainer.innerHTML = "<a href=\"#\" onclick=\"changeContent('location')\">Ort</a>"
+                tabRouteContainer.innerHTML = "<a href=\"#\" onclick=\"changeContent('route')\">Anfahrt</a>"
             }
                 break;
             case 'home': {
