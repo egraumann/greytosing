@@ -35,6 +35,7 @@
         <li id="tab-agenda"><a href="#" onclick="changeContent('agenda')">Programm</a></li>
         <li id="tab-route"><a href="#" onclick="changeContent('route')">Anfahrt</a></li>
         <li id="tab-accomm"><a href="#" onclick="changeContent('accomm')">Unterkunft</a></li>
+        <li id="tab-dresscode"><a href="#" onclick="changeContent('dresscode')">Kleiderordnung</a></li>
     </ul>
     <h1 id="info-h1">Ort</h1>
     <p id="page-content">Lorem ipsum</p>
@@ -84,6 +85,7 @@
         let tabRouteContainer = document.getElementById("tab-route")
         let tabAccommContainer = document.getElementById("tab-accomm")
         let defaultH1 = document.getElementById("info-h1")
+        let tabDressContainer = document.getElementById("tab-dresscode")
 
         switch (tab) {
             case 'location': {
@@ -100,6 +102,7 @@
                 tabRouteContainer.innerHTML = "<a href=\"#\" onclick=\"changeContent('route')\">Anfahrt</a>"
                 tabAccommContainer.innerHTML =
                     "<a href=\"#\" onclick=\"changeContent('accomm')\">Unterkunft</a>"
+                tabDressContainer.innerHTML = "<a href=\"#\" onclick=\"changeContent('dresscode')\">Kleiderordnung</a>"
             }
                 break;
             case 'agenda': {
@@ -121,6 +124,7 @@
                 tabAccommContainer.innerHTML =
                     "<a href=\"#\" onclick=\"changeContent('accomm')\">Unterkunft</a>"
                 defaultH1.innerText = "(Geplanter) Ablauf"
+                tabDressContainer.innerHTML = "<a href=\"#\" onclick=\"changeContent('dresscode')\">Kleiderordnung</a>"
             }
                 break;
             case 'route': {
@@ -136,6 +140,7 @@
                 tabOrtContainer.innerHTML = "<a href=\"#\" onclick=\"changeContent('location')\">Ort</a>"
                 tabAccommContainer.innerHTML =
                     "<a href=\"#\" onclick=\"changeContent('accomm')\">Unterkunft</a>"
+                tabDressContainer.innerHTML = "<a href=\"#\" onclick=\"changeContent('dresscode')\">Kleiderordnung</a>"
             }
                 break;
             case 'accomm': {
@@ -156,6 +161,27 @@
                 tabProgrammContainer.innerHTML = "<a href=\"#\" onclick=\"changeContent('agenda')\">Programm</a>"
                 tabOrtContainer.innerHTML = "<a href=\"#\" onclick=\"changeContent('location')\">Ort</a>"
                 tabRouteContainer.innerHTML = "<a href=\"#\" onclick=\"changeContent('route')\">Anfahrt</a>"
+                tabDressContainer.innerHTML = "<a href=\"#\" onclick=\"changeContent('dresscode')\">Kleiderordnung</a>"
+            }
+                break;
+            case 'dresscode': {
+                pageContainer.removeAttribute('hidden')
+                contentContainer.setAttribute('hidden', 'true')
+                pageTextContainer.innerHTML = '' +
+                    '<p> Wir möchten, dass ihr euch wohlfühlt.<br/> <br/ > Trotzdem sollte es zumindest auf Norderney etwas festlich sein.' +
+                    '<br/>(Wir selbst werden uns dem Anlass entsprechend auch schick machen... )' +
+                    '<br/><br/> Lasst es uns als <b>smart casual</b>/<b>lässig elegant</b> bezeichnen. <br/><br/ >' +
+                'Abends beim Abendessen könnt ihr es dann gerne etwas lockerer angehen.' +
+                    '<br/ > Nur nicht zu locker ;) </p>'
+
+                tabDressContainer.innerHTML = "Kleiderordnung"
+                defaultH1.innerText = "Kleiderordnung"
+
+                tabProgrammContainer.innerHTML = "<a href=\"#\" onclick=\"changeContent('agenda')\">Programm</a>"
+                tabOrtContainer.innerHTML = "<a href=\"#\" onclick=\"changeContent('location')\">Ort</a>"
+                tabRouteContainer.innerHTML = "<a href=\"#\" onclick=\"changeContent('route')\">Anfahrt</a>"
+                tabAccommContainer.innerHTML =
+                    "<a href=\"#\" onclick=\"changeContent('accomm')\">Unterkunft</a>"
             }
                 break;
             case 'home': {
