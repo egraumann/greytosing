@@ -36,6 +36,7 @@
         <li id="tab-route"><a href="#" onclick="changeContent('route')">Anfahrt</a></li>
         <li id="tab-accomm"><a href="#" onclick="changeContent('accomm')">Unterkunft</a></li>
         <li id="tab-dresscode"><a href="#" onclick="changeContent('dresscode')">Kleiderordnung</a></li>
+        <li id="tab-whatsapp"><a href="#" onclick="changeContent('whatsapp')">Kommunikation</a></li>
     </ul>
     <h1 id="info-h1">Ort</h1>
     <p id="page-content">Lorem ipsum</p>
@@ -86,6 +87,7 @@
         let tabAccommContainer = document.getElementById("tab-accomm")
         let defaultH1 = document.getElementById("info-h1")
         let tabDressContainer = document.getElementById("tab-dresscode")
+        let tabWhatsAppContainer = document.getElementById("tab-whatsapp")
 
         switch (tab) {
             case 'location': {
@@ -103,6 +105,7 @@
                 tabAccommContainer.innerHTML =
                     "<a href=\"#\" onclick=\"changeContent('accomm')\">Unterkunft</a>"
                 tabDressContainer.innerHTML = "<a href=\"#\" onclick=\"changeContent('dresscode')\">Kleiderordnung</a>"
+                tabWhatsAppContainer.innerHTML = "<a href=\"#\" onclick=\"changeContent('whatsapp')\">Kommunikation</a>"
             }
                 break;
             case 'agenda': {
@@ -125,6 +128,7 @@
                     "<a href=\"#\" onclick=\"changeContent('accomm')\">Unterkunft</a>"
                 defaultH1.innerText = "(Geplanter) Ablauf"
                 tabDressContainer.innerHTML = "<a href=\"#\" onclick=\"changeContent('dresscode')\">Kleiderordnung</a>"
+                tabWhatsAppContainer.innerHTML = "<a href=\"#\" onclick=\"changeContent('whatsapp')\">Kommunikation</a>"
             }
                 break;
             case 'route': {
@@ -141,6 +145,7 @@
                 tabAccommContainer.innerHTML =
                     "<a href=\"#\" onclick=\"changeContent('accomm')\">Unterkunft</a>"
                 tabDressContainer.innerHTML = "<a href=\"#\" onclick=\"changeContent('dresscode')\">Kleiderordnung</a>"
+                tabWhatsAppContainer.innerHTML = "<a href=\"#\" onclick=\"changeContent('whatsapp')\">Kommunikation</a>"
             }
                 break;
             case 'accomm': {
@@ -162,6 +167,7 @@
                 tabOrtContainer.innerHTML = "<a href=\"#\" onclick=\"changeContent('location')\">Ort</a>"
                 tabRouteContainer.innerHTML = "<a href=\"#\" onclick=\"changeContent('route')\">Anfahrt</a>"
                 tabDressContainer.innerHTML = "<a href=\"#\" onclick=\"changeContent('dresscode')\">Kleiderordnung</a>"
+                tabWhatsAppContainer.innerHTML = "<a href=\"#\" onclick=\"changeContent('whatsapp')\">Kommunikation</a>"
             }
                 break;
             case 'dresscode': {
@@ -182,8 +188,26 @@
                 tabRouteContainer.innerHTML = "<a href=\"#\" onclick=\"changeContent('route')\">Anfahrt</a>"
                 tabAccommContainer.innerHTML =
                     "<a href=\"#\" onclick=\"changeContent('accomm')\">Unterkunft</a>"
+                tabWhatsAppContainer.innerHTML = "<a href=\"#\" onclick=\"changeContent('whatsapp')\">Kommunikation</a>"
             }
                 break;
+            case 'whatsapp': {
+                pageContainer.removeAttribute('hidden')
+                contentContainer.setAttribute('hidden', 'true')
+                pageTextContainer.innerHTML = '' +
+                    '<p> Wir werden zeitnah noch einen Gruppenchat auf Whatsapp einrichten, damit wir uns besser verständigen und alle Fragen beantworten können. </p>'
+
+                tabWhatsAppContainer.innerHTML = "Kommunikation"
+                defaultH1.innerText = "Kommunikation"
+
+                tabProgrammContainer.innerHTML = "<a href=\"#\" onclick=\"changeContent('agenda')\">Programm</a>"
+                tabOrtContainer.innerHTML = "<a href=\"#\" onclick=\"changeContent('location')\">Ort</a>"
+                tabRouteContainer.innerHTML = "<a href=\"#\" onclick=\"changeContent('route')\">Anfahrt</a>"
+                tabAccommContainer.innerHTML =
+                    "<a href=\"#\" onclick=\"changeContent('accomm')\">Unterkunft</a>"
+                tabDressContainer.innerHTML = "<a href=\"#\" onclick=\"changeContent('dresscode')\">Kleiderordnung</a>"
+            }
+            break;
             case 'home': {
                 contentContainer.removeAttribute('hidden')
                 pageContainer.setAttribute('hidden', 'true')
